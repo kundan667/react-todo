@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+.scroll-bar::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+}
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 2px;
+}
+.card {
+  box-shadow: 0 1px 2px -1px rgb(0 0 0 / 40%) !important;
+}
+.todo .form-floating {
+  height: 4rem;
+}
+.cards {
+  padding: 0 1em;
+}
+.user-header {
+  height: 3rem;
+  background: #ebebeb;
+}
+.card-list-box {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  user-select: none;
+  /* white-space: nowrap; */
+  -webkit-overflow-scrolling: initial;
+  -webkit-transform: translateZ(0);
+}
+.card-list {
+  margin: 0 0.4em;
+  border-radius: 4px;
+  width: 250px;
+  min-width: 250px;
+  overflow: hidden;
+}
+.card-list-header {
+  text-align: left;
+  padding: 0 0 1em 0;
+  font-weight: 900;
+}
+.todo .user-image {
+  height: 30px;
+  width: 30px;
+}
+.todo .footer-font {
+  font-size: 0.6rem;
+}
+.todo .todo-list-box {
+  max-height: calc(100vh - (7rem + 10px + 2rem));
+  min-height: 0;
+  background: #ebebeb;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-overflow-scrolling: initial;
+  -webkit-transform: translateZ(0);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.scroll-bar::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 2px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cursor-pointer {
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.add-todo {
+  background: #ebebeb;
+  height: 2rem;
+  border-radius: 4px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.textarea {
+  box-shadow: 0 1px 2px -1px rgb(0 0 0 / 40%) !important;
+  border: none;
+  border-radius: 4px;
+}
+.textarea:focus,
+.textarea:focus-visible {
+  outline: none;
+  border: none;
 }

@@ -1,0 +1,12 @@
+.banner {
+  height: 20rem;
+  background-image: url("../../assets/images/banner-test-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+}
+.banner h1 {
+  color: #e91e63;
+}
