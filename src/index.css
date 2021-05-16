@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;

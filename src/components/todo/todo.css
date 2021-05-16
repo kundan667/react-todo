@@ -1,3 +1,6 @@
+.todo-status {
+  cursor: pointer;
+}
 .status {
   font-size: 0.7rem;
 }

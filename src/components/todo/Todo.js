@@ -4,23 +4,30 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setAllTodos } from "../../actions/index" 
 
 export default function Todo( props ){
-
-    //console.log("function::", props.changeStatus)
-
-    const todosCopy = useSelector(state => state.todoReducers.todosCopy);
+    const todos = useSelector(state => state.todoReducers.todos);
     const dispatch = useDispatch();
+
+    function setData ( data, uId, tId, type ){
+        data.find((item) => {
+            if (item.id === uId) {
+              if (type === "Delete") {
+                let index = item.todos.findIndex((todo) => todo.id === tId);
+                item.todos.splice(index, 1);
+              } else {
+                item.todos.find((todo) => {
+                  if (todo.id === tId) todo.completed = !todo.completed;
+                })
+              }
+            }
+        })
+        return data
+    }
     
-    function changeStatus( index, todoId, isCompleted ){
-        // console.log("todosCopy::",todosCopy);
-        // console.log("called: ", [index, todoId, isCompleted]);
-
-        // const temp = JSON.stringify(todosCopy);
-        // let copy = JSON.parse(temp);
-
-        // copy[index].todos = [];
-        // console.log("copy::",copy);
-
-        // dispatch( setAllTodos(copy) )
+    // Change the status of individual todo and dispatch it to state
+    function changeStatus( uId, tId, type ){
+        const temp2 = JSON.stringify(todos);
+        let userTodos = JSON.parse(temp2);
+        dispatch( setAllTodos(setData( userTodos, uId, tId, type )) )
     }
 
     return(
@@ -36,16 +43,16 @@ export default function Todo( props ){
                         <div className="text-right status text-primary">Pending</div>
                     }
                     <div>
-                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>...</b></a>
+                        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="todo-status"><b>...</b></span>
                         <div className="dropdown-menu">
                             {
                                 ( !props.completed )
                                 ?
-                                <span className="dropdown-item" onClick={ () => props.changeStatus(props.user, props.id, props.completed) }>Completed</span>
+                                <span className="dropdown-item" onClick={ () => changeStatus(props.userId, props.todoId, props.completed) }>Completed</span>
                                 :
-                                <span className="dropdown-item" onClick={ () => props.changeStatus(props.user, props.id, props.completed) }>Pending</span>
+                                <span className="dropdown-item" onClick={ () => changeStatus(props.userId, props.todoId, props.completed) }>Pending</span>
                             }
-                            <span className="dropdown-item" onClick={ () => props.changeStatus(props.user, props.id, 'Delete') }>Delete</span>
+                            <span className="dropdown-item" onClick={ () => changeStatus(props.userId, props.todoId, 'Delete') }>Delete</span>
                         </div>
                     </div>
                 </div>

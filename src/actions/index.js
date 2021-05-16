@@ -11,10 +11,3 @@ export const setTodosState = ( payload ) => {
         payload: payload
     }
 }
-
-export const setTodosCopyState = ( payload ) => {
-    return {
-        type: "SET_TODOS_COPY",
-        payload: payload
-    }
-}
